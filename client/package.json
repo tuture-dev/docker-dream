@@ -1,0 +1,32 @@
+{
+  "name": "dream-list",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "^2.0.2",
+    "react-test-renderer": "^16.3.1"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "laco": "1.2.1",
+    "laco-react": "1.1.0-alpha.1",
+    "prop-types": "^15.6.1",
+    "react": "16.8.0-alpha.1",
+    "react-dom": "16.8.0-alpha.1",
+    "todomvc-app-css": "^2.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "test": "react-scripts test --env=node"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "keywords": [],
+  "description": "React TodoMVC with Laco state management and hooks"
+}
