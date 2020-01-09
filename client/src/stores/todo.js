@@ -8,67 +8,46 @@ export const TodoStore = new Store(
   "TodoStore"
 );
 
-export const addTodo = text =>
+export const setTodos = newTodos =>
   TodoStore.set(
     ({ todos }) => ({
-      todos: [
-        ...todos,
-        {
-          id: todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
-          completed: false,
-          text
-        }
-      ]
+      todos: [...todos, ...newTodos]
+    }),
+    "Set todos"
+  );
+
+export const addTodo = todo =>
+  TodoStore.set(
+    ({ todos }) => ({
+      todos: [...todos, todo]
     }),
     "Add todo"
   );
 
-export const deleteTodo = id =>
+export const deleteTodo = _id =>
   TodoStore.set(
     ({ todos }) => ({
-      todos: todos.filter(item => item.id !== id)
+      todos: todos.filter(item => item._id !== _id)
     }),
     "Delete todo"
   );
 
-export const editTodo = (id, text) =>
+export const editTodo = (_id, text) =>
   TodoStore.set(
     ({ todos }) => ({
-      todos: todos.map(todo => (todo.id === id ? { ...todo, text } : todo))
+      todos: todos.map(todo => (todo._id === _id ? { ...todo, text } : todo))
     }),
     "Edit todo"
   );
 
-export const completeTodo = id =>
+export const completeTodo = _id =>
   TodoStore.set(
     ({ todos }) => ({
       todos: todos.map(todo =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        todo._id === _id ? { ...todo, completed: !todo.completed } : todo
       )
     }),
     "Complete todo"
-  );
-
-export const completeAllTodos = () => {
-  const todos = TodoStore.get().todos;
-  const areAllMarked = todos.every(todo => todo.completed);
-  TodoStore.set(
-    () => ({
-      todos: todos.map(todo => ({
-        ...todo,
-        completed: !areAllMarked
-      }))
-    }),
-    "Complete all todos"
-  );
-};
-
-export const clearCompletedTodos = () =>
-  TodoStore.set(
-    ({ todos }) => ({
-      todos: todos.filter(t => t.completed === false)
-    }),
-    "Clear completed todos"
   );
 
 export const getTodosCount = () => TodoStore.get().todos.length;

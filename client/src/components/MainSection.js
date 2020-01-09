@@ -2,12 +2,7 @@ import React from "react";
 import Footer from "./Footer";
 import TodoList from "../components/TodoList";
 import { useStore } from "laco-react";
-import {
-  TodoStore,
-  completeAllTodos,
-  clearCompletedTodos,
-  getCompletedCount
-} from "../stores/todo";
+import { TodoStore, getCompletedCount } from "../stores/todo";
 
 const MainSection = () => {
   const { todos } = useStore(TodoStore);
@@ -22,17 +17,10 @@ const MainSection = () => {
             type="checkbox"
             defaultChecked={completedCount === todosCount}
           />
-          <label onClick={completeAllTodos} />
         </span>
       )}
       <TodoList />
-      {!!todosCount && (
-        <Footer
-          completedCount={completedCount}
-          activeCount={todosCount - completedCount}
-          onClearCompleted={clearCompletedTodos}
-        />
-      )}
+      {!!todosCount && <Footer activeCount={todosCount - completedCount} />}
     </section>
   );
 };
