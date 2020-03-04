@@ -3,6 +3,8 @@ FROM node:10
 # 指定工作目录为 /usr/src/app，接下来的命令全部在这个目录下操作
 WORKDIR /usr/src/app
 
+VOLUME /var/log/server
+
 # 将 package.json 拷贝到工作目录
 COPY package.json .
 
@@ -16,6 +18,7 @@ COPY . .
 ENV MONGO_URI=mongodb://dream-db:27017/todos
 ENV HOST=0.0.0.0
 ENV PORT=4000
+ENV LOG_PATH=/var/log/server/access.log
 
 # 开放 4000 端口
 EXPOSE 4000
