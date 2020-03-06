@@ -130,5 +130,13 @@
   {
     "localPath": ".tuture/assets/log-backup.png",
     "hostingUri": "https://imgkr.cn-bj.ufileos.com/e705fe02-34c5-4453-b8d6-ee4b8292b55b.png"
+  },
+  {
+    "localPath": ".tuture/assets/db-backup-1.png",
+    "hostingUri": "https://imgkr.cn-bj.ufileos.com/ff9bb80d-df21-41d4-a95e-d85ce2358071.png"
+  },
+  {
+    "localPath": ".tuture/assets/db-backup-2.png",
+    "hostingUri": "https://imgkr.cn-bj.ufileos.com/e2f68f11-8557-4ae4-8af0-0be6312d4949.png"
   }
 ]

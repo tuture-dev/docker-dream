@@ -11526,7 +11526,7 @@
                   "type": "heading-four",
                   "children": [
                     {
-                      "text": "备份思路一：共享数据卷"
+                      "text": "备份思路一：临时容器+容器互联"
                     }
                   ],
                   "id": "yY-o94CI"
@@ -11535,10 +11535,33 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": "按照之前共享数据卷的思路，我们也尝试通过一个临时 Mongo 容器来备份数据："
+                      "text": "按照之前共享数据卷的思路，我们也尝试通过一个临时 Mongo 容器来备份数据。示意图如下："
                     }
                   ],
                   "id": "FxC2P8UW"
+                },
+                {
+                  "type": "image",
+                  "url": ".tuture/assets/db-backup-1.png",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "children": [
+                    {
+                      "text": "首先，我们的临时容器得连接上 "
+                    },
+                    {
+                      "text": "dream-db",
+                      "code": true
+                    },
+                    {
+                      "text": " 容器，并配置好绑定挂载，命令如下："
+                    }
+                  ]
                 },
                 {
                   "type": "code-block",
@@ -11548,7 +11571,7 @@
                       "type": "code-line",
                       "children": [
                         {
-                          "text": "docker run -it --rm --volumes-from dream-db -v $(pwd):/backup --network dream-net mongo sh"
+                          "text": "docker run -it --rm -v $(pwd):/backup --network dream-net mongo sh"
                         }
                       ]
                     }
@@ -11558,7 +11581,7 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": "大部分参数都是类似的。不过请注意，和之前备份日志数据相比，我们要把这个临时容器连接到 "
+                      "text": "和之前备份日志数据相比，我们要把这个临时容器连接到 "
                     },
                     {
                       "text": "dream-net",
@@ -11588,7 +11611,7 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": "进入到这个临时容器后，运行 "
+                      "text": "第二步，进入到这个临时容器后，运行 "
                     },
                     {
                       "text": "mongodump",
@@ -11617,7 +11640,21 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": "退出后，就可以在当前目录下看到 "
+                      "text": "此时，由于绑定挂载，输出到 "
+                    },
+                    {
+                      "text": "/backup",
+                      "code": true
+                    },
+                    {
+                      "text": " 的文件将保存到当前目录（"
+                    },
+                    {
+                      "text": "pwd",
+                      "code": true
+                    },
+                    {
+                      "text": "）中。退出后，就可以在当前目录下看到 "
                     },
                     {
                       "text": "mongo-backup.gz",
@@ -11674,6 +11711,15 @@
                     }
                   ],
                   "id": "uJrVao-Z"
+                },
+                {
+                  "type": "image",
+                  "url": ".tuture/assets/db-backup-2.png",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
                 },
                 {
                   "type": "paragraph",
