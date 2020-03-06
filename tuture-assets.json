@@ -102,5 +102,33 @@
   {
     "localPath": ".tuture/assets/cover-2.jpg",
     "hostingUri": "https://imgkr.cn-bj.ufileos.com/898e445b-9477-415b-8665-aeea4d63c9ce.jpg"
+  },
+  {
+    "localPath": ".tuture/assets/types-of-mounts-volume.png",
+    "hostingUri": "https://imgkr.cn-bj.ufileos.com/b34a0993-2b4e-4c37-9980-740e4e6efbb0.png"
+  },
+  {
+    "localPath": ".tuture/assets/docker-volume.png",
+    "hostingUri": "https://imgkr.cn-bj.ufileos.com/e3130051-29e4-43da-b3bf-22b9bea2e1d0.png"
+  },
+  {
+    "localPath": ".tuture/assets/docker-volume-2cac2304fb49274f.png",
+    "hostingUri": "https://imgkr.cn-bj.ufileos.com/509fbbda-3acb-4c97-af06-802dfd291a76.png"
+  },
+  {
+    "localPath": ".tuture/assets/docker-ps-vol-squashed.jpg",
+    "hostingUri": "https://imgkr.cn-bj.ufileos.com/b51275f9-423f-43b8-9e85-0950af8557b0.jpg"
+  },
+  {
+    "localPath": ".tuture/assets/snapshot-vol-squashed.jpg",
+    "hostingUri": "https://imgkr.cn-bj.ufileos.com/bae3db1c-ad49-4646-9897-605f1dfc2bdc.jpg"
+  },
+  {
+    "localPath": ".tuture/assets/ufs.png",
+    "hostingUri": "https://imgkr.cn-bj.ufileos.com/8e136a4b-c3bb-4fd4-b3a1-c45caf57b6c1.png"
+  },
+  {
+    "localPath": ".tuture/assets/log-backup.png",
+    "hostingUri": "https://imgkr.cn-bj.ufileos.com/e705fe02-34c5-4453-b8d6-ee4b8292b55b.png"
   }
 ]

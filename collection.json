@@ -24,10 +24,19 @@
       "description": "努力工作，然后进入梦乡，“工作”和“做梦”之间好像没有任何关联；编写代码，然后部署应用，这两者似乎也是天各一边。然而果真如此吗？这篇文章将通过《盗梦空间》的方式打开 Docker，让你实现从“做梦”到“筑梦”的实质性转变。在原先的“做梦”阶段（手动配置和部署），一切都充满了随机性和不可控性，你有时甚至都无法回忆起具体做的每一步；而在“筑梦”阶段（借助 Docker），你将通过自动化、高度可重复且可追踪的方式轻松实现任何配置和部署任务。希望读完这篇文章的你，也能成为一个优秀的“筑梦师”！"
     },
     {
-      "name": "Docker 包教包会（一）：用 Network 实现容器互联",
+      "name": "Docker 筑梦师系列（一）：实现容器互联",
       "id": "cd44c8468a5c475985364cae57387491",
       "cover": ".tuture/assets/cover-2.jpg",
       "description": "在实际应用中，不同的服务之间是需要通信的，例如后端 API 和数据库；幸运的是，Docker 为我们提供了网络（Network）机制，能够轻松实现容器互联。这篇文章将带你轻松上手 Docker 网络，学会使用默认网络和自定义网络，成为一名能够连接多个“梦境”的筑梦师！"
+    },
+    {
+      "id": "0X8ssR35",
+      "name": "Docker 筑梦师系列（二）：上手容器数据管理",
+      "topics": [
+        "Docker"
+      ],
+      "cover": "",
+      "description": "数据是一切应用和服务的核心，特别是目睹了一次次“删库跑路”引发的惨剧之后，我们更能深入体会到数据存储与备份的重要性。Docker 也为我们提供了方便且强大的方式去处理容器的数据。在这一篇文章中，我们将带你了解 Docker 的两种常用的数据管理方式：数据卷（Volume）和绑定挂载（Bind Mount），从而能够游刃有余地处理好数据，为你的应用提供强有力的支撑和保障。"
     }
   ],
   "steps": [
@@ -9222,6 +9231,3279 @@
                   "text": "）；2）还没有真正部署到远程机器；3）MongoDB 还处于“裸奔”的状态（没设置密码）。不要方，我们在接下里的教程中就会去解决哦。"
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "f81540ea93f63c9d1de865fe197cfa9d5375691c",
+      "id": "cyydoNtj1",
+      "articleId": "0X8ssR35",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "f81540ea93f63c9d1de865fe197cfa9d5375691c",
+          "id": "mkWs28UCX",
+          "fixed": true,
+          "children": [
+            {
+              "text": "Docker 数据管理概览"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "好久不见，欢迎继续阅读“筑梦师系列” Docker 教程，前情回顾："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "在"
+                    },
+                    {
+                      "text": "《一杯茶的时间，上手 Docker》",
+                      "link": true,
+                      "url": "https://tuture.co/2020/01/01/442cc8d/"
+                    },
+                    {
+                      "text": "中，我们以“工作”和“做梦”来类比“应用开发”和“部署”，并通过一些小实验让你理解 Docker 是如何实现从“做梦”到“筑梦”的跨越的，并且理解了"
+                    },
+                    {
+                      "text": "镜像",
+                      "bold": true
+                    },
+                    {
+                      "text": "和"
+                    },
+                    {
+                      "text": "容器",
+                      "bold": true
+                    },
+                    {
+                      "text": "两大关键概念，并成功地容器化了第一个应用"
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "在"
+                    },
+                    {
+                      "text": "《梦境亦相通：用 Network 实现容器互联》",
+                      "link": true,
+                      "url": "https://tuture.co/2020/01/01/cd44c84/"
+                    },
+                    {
+                      "text": "中，我们了解了”梦境“是相通的，不同的容器可以通过 Docker 网络实现相互之间的通信"
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "而在这一篇教程中，我们将带你上手 Docker 数据管理，搭建起”梦境“（容器环境）与”现实“（主机环境）的桥梁。Docker 数据的管理方式主要分为三种："
+                }
+              ]
+            },
+            {
+              "type": "numbered-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "数据卷",
+                      "bold": true
+                    },
+                    {
+                      "text": "（Volume），也是"
+                    },
+                    {
+                      "text": "最为推荐的一种方式",
+                      "bold": true
+                    }
+                  ],
+                  "id": "46w_mFrb",
+                  "level": 0,
+                  "parent": "numbered-list",
+                  "number": 1
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "绑定挂载",
+                      "bold": true
+                    },
+                    {
+                      "text": "（Bind Mount），Docker 早期常用的数据管理方式"
+                    }
+                  ],
+                  "id": "46w_mFrb",
+                  "level": 0,
+                  "parent": "numbered-list",
+                  "number": 2
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "tmpfs 挂载",
+                      "bold": true
+                    },
+                    {
+                      "text": "，基于内存的数据管理，"
+                    },
+                    {
+                      "text": "本篇教程不会涉及",
+                      "italic": true
+                    }
+                  ],
+                  "id": "46w_mFrb",
+                  "level": 0,
+                  "parent": "numbered-list",
+                  "number": 3
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "warning",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "tmpfs 挂载",
+                      "link": true,
+                      "url": "https://docs.docker.com/storage/tmpfs/"
+                    },
+                    {
+                      "text": "只适用于 Linux 操作系统。"
+                    }
+                  ],
+                  "id": "46w_mFrb",
+                  "level": 0,
+                  "parent": "numbered-list",
+                  "number": 4
+                }
+              ]
+            },
+            {
+              "children": [
+                {
+                  "text": "我们马上通过几个小实验来体验一下（已经比较熟悉的同学可以直接移步下面的”实战演练“环节）。"
+                }
+              ]
+            },
+            {
+              "children": [
+                {
+                  "text": "数据卷"
+                }
+              ],
+              "type": "heading-three",
+              "id": "HT3uCv0D"
+            },
+            {
+              "children": [
+                {
+                  "text": "基本命令"
+                }
+              ],
+              "type": "heading-four",
+              "id": "nqhAWBv_"
+            },
+            {
+              "children": [
+                {
+                  "text": "正如在"
+                },
+                {
+                  "text": "上一篇",
+                  "link": true,
+                  "url": "https://tuture.co/2020/01/01/cd44c84/"
+                },
+                {
+                  "text": "中最后“记住几十个 Docker 命令小诀窍”所提到的，"
+                },
+                {
+                  "text": "数据卷（Volume）也是常见的 Docker 对象类型的一种",
+                  "bold": true
+                },
+                {
+                  "text": "，因此也支持 "
+                },
+                {
+                  "text": "create",
+                  "code": true
+                },
+                {
+                  "text": "（创建）、"
+                },
+                {
+                  "text": "inspect",
+                  "code": true
+                },
+                {
+                  "text": " （查看详情）、"
+                },
+                {
+                  "text": "ls",
+                  "code": true
+                },
+                {
+                  "text": " （列出所有数据卷）、"
+                },
+                {
+                  "text": "prune",
+                  "code": true
+                },
+                {
+                  "text": " （删除无用数据卷）和 "
+                },
+                {
+                  "text": "rm",
+                  "code": true
+                },
+                {
+                  "text": "（删除）等操作。"
+                }
+              ],
+              "type": "paragraph",
+              "id": "a9rdciNB"
+            },
+            {
+              "children": [
+                {
+                  "text": "我们来走一个流程体验一下。首先创建一个数据卷："
+                }
+              ],
+              "type": "paragraph",
+              "id": "a9rdciNB"
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker volume create my-volume"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "查看当前所有的数据卷："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker volume ls"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "输出了刚刚创建的 "
+                },
+                {
+                  "text": "my-volume",
+                  "code": true
+                },
+                {
+                  "text": " 数据卷："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "local               my-volume"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "查看 "
+                },
+                {
+                  "text": "my-volume",
+                  "code": true
+                },
+                {
+                  "text": " 数据卷的详细情况："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker volume inspect my-volume"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到输出了 JSON 格式的 "
+                },
+                {
+                  "text": "my-volume",
+                  "code": true
+                },
+                {
+                  "text": "  信息："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "["
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Driver\": \"local\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Labels\": {},"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Mountpoint\": \"/var/lib/docker/volumes/my-vol/_data\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Name\": \"my-volume\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Options\": {},"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Scope\": \"local\""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    }"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "]"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "info",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "好奇的同学可能会去查看 "
+                    },
+                    {
+                      "text": "/var/lib/docker/volumes",
+                      "code": true
+                    },
+                    {
+                      "text": " 目录下面是不是真的有数据卷，答案是：对于非 Linux 系统而言（Windows 和 Mac 系统），该目录不存在于你的文件系统中，而是存在于 Docker 虚拟机中。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "最后删除 "
+                },
+                {
+                  "text": "my-volume",
+                  "code": true
+                },
+                {
+                  "text": " 数据卷："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker volume rm my-volume"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "单独创建一个数据卷意义不大，毕竟它本来的作用就是为容器的数据管理服务。请看下图（来源 "
+                },
+                {
+                  "text": "Safari Books Online",
+                  "link": true,
+                  "url": "https://www.oreilly.com/library/view/continuous-delivery-with/9781787125230/8af8e5f4-66d5-4fe7-8709-2b5e1ae4acdf.xhtml"
+                },
+                {
+                  "text": "）："
+                }
+              ]
+            },
+            {
+              "type": "image",
+              "url": ".tuture/assets/docker-volume-2cac2304fb49274f.png",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到，数据卷在“主机环境”和“容器环境”之间架起了“一道桥梁”。通常，我们在容器中将需要存储的数据写入数据卷所挂载的路径（位置），然后就会立即、自动地将这些数据存储到主机对应的区域。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在创建带有数据卷的容器时，通常有两种选择：1）"
+                },
+                {
+                  "text": "命名卷",
+                  "bold": true
+                },
+                {
+                  "text": "（Named Volume）；2）"
+                },
+                {
+                  "text": "匿名卷",
+                  "bold": true
+                },
+                {
+                  "text": "（Anonymous Volume）。接下来我们就分别详细讲解。"
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "text": "创建命名卷"
+                }
+              ],
+              "id": "0d1ruljM"
+            },
+            {
+              "children": [
+                {
+                  "text": "首先我们来演示一下如何创建带有命名卷的容器，运行以下命令："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker run -it -v my-vol:/data --name container1 alpine"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到，我们通过 "
+                },
+                {
+                  "text": "-v",
+                  "code": true
+                },
+                {
+                  "text": " （或者 "
+                },
+                {
+                  "text": "--volume",
+                  "code": true
+                },
+                {
+                  "text": " ）参数指定了数据卷的配置为 "
+                },
+                {
+                  "text": "my-vol:/data",
+                  "code": true
+                },
+                {
+                  "text": " ，其中（你应该猜到了）"
+                },
+                {
+                  "text": "my-vol",
+                  "code": true
+                },
+                {
+                  "text": " 就是数据卷的名称，"
+                },
+                {
+                  "text": "/data",
+                  "code": true
+                },
+                {
+                  "text": " 就是容器中数据卷的路径。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在进入容器中后，我们向 "
+                },
+                {
+                  "text": "/data",
+                  "code": true
+                },
+                {
+                  "text": " 目录中添加一个文件后退出："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "/ # touch /data/file.txt"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "/ # exit"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "为了验证 "
+                },
+                {
+                  "text": "/data",
+                  "code": true
+                },
+                {
+                  "text": " 中的数据是否真的保存下来，我们删除 "
+                },
+                {
+                  "text": "container1",
+                  "code": true
+                },
+                {
+                  "text": " 容器，然后再创建一个新的容器 "
+                },
+                {
+                  "text": "container2",
+                  "code": true
+                },
+                {
+                  "text": " ，查看其中的 "
+                },
+                {
+                  "text": "/data",
+                  "code": true
+                },
+                {
+                  "text": " 目录内容："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker rm container1"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker run -it -v my-vol:/data --name container2 alpine"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "/ # ls /data"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "file.txt"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "/ # exit"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到刚刚在 "
+                },
+                {
+                  "text": "container1",
+                  "code": true
+                },
+                {
+                  "text": " 中创建的 "
+                },
+                {
+                  "text": "file.txt",
+                  "code": true
+                },
+                {
+                  "text": " 文件！事实上，这种在"
+                },
+                {
+                  "text": "容器之间共享数据卷",
+                  "bold": true
+                },
+                {
+                  "text": "的模式非常常见，Docker 提供了一个方便的参数 "
+                },
+                {
+                  "text": "--volumes-from",
+                  "code": true
+                },
+                {
+                  "text": " 来轻松实现数据卷共享："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker run -it --volumes-from container2 --name container3 alpine"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "/ # ls /data"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "file.txt"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "同样，"
+                },
+                {
+                  "text": "container3",
+                  "code": true
+                },
+                {
+                  "text": " 中也能访问到数据卷中的内容。"
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "text": "创建匿名卷"
+                }
+              ],
+              "id": "VS9B9Uey"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "创建匿名卷的方式就很简单了，之前我们通过 "
+                },
+                {
+                  "text": "my-vol:/data",
+                  "code": true
+                },
+                {
+                  "text": " 作为 "
+                },
+                {
+                  "text": "-v",
+                  "code": true
+                },
+                {
+                  "text": " 的参数，而创建匿名卷只需省略数据卷名称（"
+                },
+                {
+                  "text": "my-vol",
+                  "code": true
+                },
+                {
+                  "text": " 即可）："
+                }
+              ],
+              "id": "cBJcDmSk"
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker run -v /data --name container4 alpine"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们通过 "
+                },
+                {
+                  "text": "inspect",
+                  "code": true
+                },
+                {
+                  "text": " 命令来查看一下 "
+                },
+                {
+                  "text": "container4",
+                  "code": true
+                },
+                {
+                  "text": " 的情况："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker inspect container4"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们可以在其中的 "
+                },
+                {
+                  "text": "Mount",
+                  "code": true
+                },
+                {
+                  "text": " 字段中看到如下数据："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "json",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "\"Mounts\": ["
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Type\": \"volume\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Name\": \"dfee1d707956e427cc1818a6ee6060699514102e145cde314d4d938ceb12dfd3\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Source\": \"/var/lib/docker/volumes/dfee1d707956e427cc1818a6ee6060699514102e145cde314d4d938ceb12dfd3/_data\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Destination\": \"/data\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Driver\": \"local\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Mode\": \"\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"RW\": true,"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "        \"Propagation\": \"\""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    }"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "]"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们来分析一下重要的字段："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "Name",
+                      "code": true
+                    },
+                    {
+                      "text": " 即数据卷的名称，由于是匿名卷，所以 "
+                    },
+                    {
+                      "text": "Name",
+                      "code": true
+                    },
+                    {
+                      "text": " 字段就是一串长长的随机数，命名卷则为指定的名称"
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "Source",
+                      "code": true
+                    },
+                    {
+                      "text": " 为数据卷在主机文件系统中的存储路径（之前说了，Windows 和 Mac 在 Docker 虚拟机中）"
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "Destination",
+                      "code": true
+                    },
+                    {
+                      "text": " 为数据卷在容器中的挂载点"
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "RW",
+                      "code": true
+                    },
+                    {
+                      "text": " 指可读写（Read-Write），如果为 "
+                    },
+                    {
+                      "text": "false",
+                      "code": true
+                    },
+                    {
+                      "text": " ，则为只读数据卷"
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "text": "在 Dockerfile 中使用数据卷"
+                }
+              ],
+              "level": 0,
+              "parent": "bulleted-list",
+              "id": "jlFLK-7k"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在 Dockerfile 中使用数据卷非常简单，只需通过 "
+                },
+                {
+                  "text": "VOLUME",
+                  "code": true
+                },
+                {
+                  "text": " 关键词指定数据卷就可以了："
+                }
+              ],
+              "level": 0,
+              "parent": "bulleted-list",
+              "id": "qhrZgAou"
+            },
+            {
+              "type": "code-block",
+              "lang": "dockerfile",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "VOLUME /data"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "# 或者通过 JSON 数组的方式指定多个数据卷"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "VOLUME [\"/data1\", \"/data2\", \"/data3\"]"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "有两点需要注意："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "只能创建"
+                    },
+                    {
+                      "text": "匿名卷",
+                      "bold": true
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "当通过 "
+                    },
+                    {
+                      "text": "docker run -v",
+                      "code": true
+                    },
+                    {
+                      "text": " 指定数据卷时，Dockerfile 中的配置"
+                    },
+                    {
+                      "text": "会被覆盖",
+                      "bold": true
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "绑定挂载"
+                }
+              ],
+              "level": 0,
+              "parent": "bulleted-list",
+              "id": "DVKRRrs0"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "绑定挂载（Bind Mount）是出现最早的 Docker 数据管理和存储解决方案，它的大致思路和数据卷是一致的，只不过是直接建立"
+                },
+                {
+                  "text": "本机文件系统",
+                  "bold": true
+                },
+                {
+                  "text": "和"
+                },
+                {
+                  "text": "容器文件系统",
+                  "bold": true
+                },
+                {
+                  "text": "之间的映射关系，非常适合简单、灵活地在本机和容器之间传递数据。"
+                }
+              ],
+              "level": 0,
+              "parent": "bulleted-list",
+              "id": "H8YbD6d1"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们可以试着把自己机器的桌面（或者其他路径）挂载到容器中："
+                }
+              ],
+              "level": 0,
+              "parent": "bulleted-list",
+              "id": "H8YbD6d1"
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker run -it --rm -v ~/Desktop:/desktop alpine"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们还是通过 "
+                },
+                {
+                  "text": "-v",
+                  "code": true
+                },
+                {
+                  "text": " 参数来进行配置，"
+                },
+                {
+                  "text": "~/Desktop",
+                  "code": true
+                },
+                {
+                  "text": " 是本机文件系统路径，"
+                },
+                {
+                  "text": "/desktop",
+                  "code": true
+                },
+                {
+                  "text": " 则是容器中的路径，"
+                },
+                {
+                  "text": "~/Desktop:/desktop",
+                  "code": true
+                },
+                {
+                  "text": " 则是将本机路径和容器路径进行绑定，仿佛架起了一道桥梁。这里的 "
+                },
+                {
+                  "text": "--rm",
+                  "code": true
+                },
+                {
+                  "text": " 选项是指在容器停止之后自动删除（关于容器生命周期的更多细节，请参考"
+                },
+                {
+                  "text": "第一篇文章",
+                  "link": true,
+                  "url": "https://tuture.co/2020/01/01/442cc8d/"
+                },
+                {
+                  "text": "）。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "进入到容器之后，可以试试看 "
+                },
+                {
+                  "text": "/desktop",
+                  "code": true
+                },
+                {
+                  "text": " 下面有没有自己桌面上的东西，然后再在容器中创建一个文件，看看桌面上有没有收到这个文件："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "/# ls /desktop"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "# 我自己桌面上的很多东西 :D"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "/# touch /desktop/from-container.txt"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "你应该能看到自己的桌面上多了容器中创建的 "
+                },
+                {
+                  "text": "from-container.txt",
+                  "code": true
+                },
+                {
+                  "text": " 文件！"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "小结"
+                }
+              ],
+              "id": "fxP9Sa5l"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们贴出官方文档这张示意图："
+                }
+              ]
+            },
+            {
+              "type": "image",
+              "url": ".tuture/assets/types-of-mounts-volume.png",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "children": [
+                {
+                  "text": "可以看到："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "children": [
+                    {
+                      "text": "数据卷（Volume）是 Docker 在本地文件系统中专门维护了一个区域用于存储容器数据"
+                    }
+                  ],
+                  "type": "list-item",
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "children": [
+                    {
+                      "text": "绑定挂载（Bind Mount）则是建立容器文件系统和本地文件系统的映射"
+                    }
+                  ],
+                  "type": "list-item",
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "children": [
+                    {
+                      "text": "tmpfs 则是直接在内存中管理容器数据"
+                    }
+                  ],
+                  "type": "list-item",
+                  "level": 0,
+                  "parent": "bulleted-list"
+                }
+              ]
+            },
+            {
+              "children": [
+                {
+                  "text": "在指定数据卷或绑定挂载时，"
+                },
+                {
+                  "text": "-v",
+                  "code": true
+                },
+                {
+                  "text": " 参数的格式为 "
+                },
+                {
+                  "text": "<first_field>:<second_field>:<rw_options>",
+                  "code": true
+                },
+                {
+                  "text": " （注意"
+                },
+                {
+                  "text": "通过冒号分隔",
+                  "bold": true
+                },
+                {
+                  "text": "），包括三个字段，分别是："
+                }
+              ],
+              "type": "paragraph",
+              "level": 0,
+              "parent": "bulleted-list"
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "数据卷名称或者本机路径，可省略（省略的话就是匿名卷）"
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "数据卷在容器内的挂载点（路径），"
+                    },
+                    {
+                      "text": "必填",
+                      "bold": true
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "读写选项，默认是可读写，如果指定 "
+                    },
+                    {
+                      "text": "ro",
+                      "code": true
+                    },
+                    {
+                      "text": " （Read-only），则为只读"
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "info",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Docker 在 17.06 版本之后引入了 "
+                    },
+                    {
+                      "text": "--mount",
+                      "code": true
+                    },
+                    {
+                      "text": " 参数，功能与 "
+                    },
+                    {
+                      "text": "-v",
+                      "code": true
+                    },
+                    {
+                      "text": " / "
+                    },
+                    {
+                      "text": "--volume",
+                      "code": true
+                    },
+                    {
+                      "text": " 参数几乎一致，通过键值对的方式指定数据卷的配置，更为冗长但也更清晰。这篇文章将详细讲解更为常见和普遍的 "
+                    },
+                    {
+                      "text": "-v",
+                      "code": true
+                    },
+                    {
+                      "text": " 参数，"
+                    },
+                    {
+                      "text": "--mount",
+                      "code": true
+                    },
+                    {
+                      "text": " 参数的更多使用可参考"
+                    },
+                    {
+                      "text": "文档",
+                      "link": true,
+                      "url": "https://docs.docker.com/storage/volumes"
+                    },
+                    {
+                      "text": "。"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "server/Dockerfile",
+          "display": true,
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-two",
+                  "children": [
+                    {
+                      "text": "实战演练"
+                    }
+                  ],
+                  "id": "MDzCrYTy"
+                },
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "准备工作和目标"
+                    }
+                  ],
+                  "id": "lQ3wUOW1"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "好的，终于到了实战演练环节——继续部署我们之前一直在做的全栈待办事项项目（React 前端 + Express 后端 + MongoDB 数据库）。如果你没有阅读之前的教程，想直接从这一步开始做起，请运行以下命令："
+                    }
+                  ],
+                  "id": "coD0JCsq"
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "git clone -b volume-start https://github.com/tuture-dev/docker-dream.git"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "cd docker-dream"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在之前项目的基础上，我们打算"
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "存储和备份 Express 服务器输出的日志数据，而不是存储在”朝生暮死“的容器中"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "MongoDB 镜像已经做了数据卷配置，所以我们只需实践一波怎么备份和恢复数据"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "为 Express 服务器挂载数据卷"
+                    }
+                  ],
+                  "id": "tG9qCU2F"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "OK，我们在 "
+                    },
+                    {
+                      "text": "server/Dockerfile",
+                      "code": true
+                    },
+                    {
+                      "text": " 中添加 "
+                    },
+                    {
+                      "text": "VOLUME",
+                      "code": true
+                    },
+                    {
+                      "text": " 配置，并且指定 "
+                    },
+                    {
+                      "text": "LOG_PATH",
+                      "code": true
+                    },
+                    {
+                      "text": " （日志输出路径环境变量，可参考 "
+                    },
+                    {
+                      "text": "server/index.js",
+                      "code": true
+                    },
+                    {
+                      "text": " 的源码）为 "
+                    },
+                    {
+                      "text": "/var/log/server/access.log",
+                      "code": true
+                    },
+                    {
+                      "text": "，代码如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "server/Dockerfile",
+              "commit": "f81540ea93f63c9d1de865fe197cfa9d5375691c",
+              "hiddenLines": [
+                0,
+                1,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                22,
+                23,
+                24,
+                25,
+                26
+              ],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "然后 build 服务器镜像："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker build -t dream-server server/"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "稍等片刻后，我们把整个项目开起来："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "# 创建网络，便于容器互联"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker network create dream-net"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "# 启动 MongoDB 容器（dream-db）"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker run --name dream-db --network dream-net -d mongo"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "# 启动 Express API 容器（dream-api）"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker run -p 4000:4000 --name dream-api --network dream-net -d dream-server"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "# 构建提供 React 前端页面的 Nginx 服务器"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker build -t dream-client client"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "# 启动 Nginx 服务器容器（client）"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker run -p 8080:80 --name client -d dream-client"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "通过 "
+                    },
+                    {
+                      "text": "docker ps",
+                      "code": true
+                    },
+                    {
+                      "text": " 确保三个容器都已经开启："
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "url": ".tuture/assets/docker-ps-vol-squashed.jpg",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "children": [
+                    {
+                      "text": "访问 "
+                    },
+                    {
+                      "text": "localhost:8080",
+                      "code": true
+                    },
+                    {
+                      "text": " ，进入到待办事项页面，创建几个事项："
+                    }
+                  ]
+                },
+                {
+                  "type": "image",
+                  "url": ".tuture/assets/snapshot-vol-squashed.jpg",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "children": [
+                    {
+                      "text": "日志数据的备份"
+                    }
+                  ],
+                  "type": "heading-three",
+                  "id": "tAjZITjE"
+                },
+                {
+                  "children": [
+                    {
+                      "text": "之前我们把日志数据存储到了匿名卷中，由于直接获取数据卷中的数据是比较麻烦的，推荐的做法是通过创建一个新的临时容器，通过共享数据卷的方式来备份数据。听着有点晕？请看下图："
+                    }
+                  ],
+                  "type": "paragraph",
+                  "id": "qGHfmbiR"
+                },
+                {
+                  "type": "image",
+                  "url": ".tuture/assets/log-backup.png",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "children": [
+                    {
+                      "text": "按照以下步骤进行："
+                    }
+                  ]
+                },
+                {
+                  "children": [
+                    {
+                      "text": "第一步，实现 "
+                    },
+                    {
+                      "text": "dream-api",
+                      "code": true
+                    },
+                    {
+                      "text": " 容器和数据卷之间的数据共享（已实现）。"
+                    }
+                  ]
+                },
+                {
+                  "children": [
+                    {
+                      "text": "第二步，创建临时容器，获取 "
+                    },
+                    {
+                      "text": "dream-api",
+                      "code": true
+                    },
+                    {
+                      "text": " 的数据卷。运行以下命令："
+                    }
+                  ],
+                  "type": "paragraph",
+                  "id": "qGHfmbiR"
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker run -it --rm --volumes-from dream-api -v $(pwd):/backup alpine"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "上面这句命令同时用到了上面讲解的数据卷和绑定挂载："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "--volumes-from dream-api",
+                          "code": true
+                        },
+                        {
+                          "text": " 用于容器之间共享数据卷，这里我们获取 "
+                        },
+                        {
+                          "text": "dream-api",
+                          "code": true
+                        },
+                        {
+                          "text": " 的数据卷"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "-v $(pwd):/backup",
+                          "code": true
+                        },
+                        {
+                          "text": " 用于建立当前本机文件路径（"
+                        },
+                        {
+                          "text": "pwd",
+                          "code": true
+                        },
+                        {
+                          "text": " 命令获取）和临时容器内 "
+                        },
+                        {
+                          "text": "/backup",
+                          "code": true
+                        },
+                        {
+                          "text": " 路径的绑定挂载"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "第三步，进入临时容器之后，我们把日志数据压缩成 tar 包放到 "
+                    },
+                    {
+                      "text": "/backup",
+                      "code": true
+                    },
+                    {
+                      "text": " 目录下，然后退出："
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "/ # tar cvf /backup/backup.tar /var/log/server/"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "tar: removing leading '/' from member names"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "var/log/server/"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "var/log/server/access.log"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "/ # exit"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "退出之后，是不是在当前目录看到了日志的备份 "
+                    },
+                    {
+                      "text": "backup.tar",
+                      "code": true
+                    },
+                    {
+                      "text": " ？事实上，我们可以通过一条命令搞定："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker run -it --rm --volumes-from dream-api -v $(pwd):/backup alpine tar cvf /backup/backup.tar /var/log/server"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "如果你觉得上面这条命令难以理解的话，答应我，一定要去仔细看看上一篇文章中的”回忆与升华“-”理解命令：梦境的主旋律“这一部分！"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "数据库备份与恢复"
+                    }
+                  ],
+                  "id": "imab3MYN"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "接下里就是这篇文章的重头戏，各位打起十二分的精神！我们的应用会不会遭遇删库跑路的危机全看你有没有学会这一节的操作技巧了！"
+                    }
+                  ],
+                  "id": "FxC2P8UW"
+                },
+                {
+                  "type": "note",
+                  "level": "info",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "我们这里使用 MongoDB 自带的备份与恢复命令（"
+                        },
+                        {
+                          "text": "mongodump",
+                          "code": true
+                        },
+                        {
+                          "text": " 与 "
+                        },
+                        {
+                          "text": "mongorestore",
+                          "code": true
+                        },
+                        {
+                          "text": " ），其他数据库（例如 MySQL）也有类似的命令，都可以借鉴本文的方式。"
+                        }
+                      ],
+                      "id": "FxC2P8UW"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "备份思路一：共享数据卷"
+                    }
+                  ],
+                  "id": "yY-o94CI"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "按照之前共享数据卷的思路，我们也尝试通过一个临时 Mongo 容器来备份数据："
+                    }
+                  ],
+                  "id": "FxC2P8UW"
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker run -it --rm --volumes-from dream-db -v $(pwd):/backup --network dream-net mongo sh"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "大部分参数都是类似的。不过请注意，和之前备份日志数据相比，我们要把这个临时容器连接到 "
+                    },
+                    {
+                      "text": "dream-net",
+                      "code": true
+                    },
+                    {
+                      "text": " 网络中，它才能访问到 "
+                    },
+                    {
+                      "text": "dream-db",
+                      "code": true
+                    },
+                    {
+                      "text": " 的数据进行备份（不熟悉 Docker 网络的同学可复习"
+                    },
+                    {
+                      "text": "前一篇文章",
+                      "link": true,
+                      "url": "https://tuture.co/2020/01/01/cd44c84/"
+                    },
+                    {
+                      "text": "）。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "进入到这个临时容器后，运行 "
+                    },
+                    {
+                      "text": "mongodump",
+                      "code": true
+                    },
+                    {
+                      "text": " 命令："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "/ # mongodump -v --host dream-db:27017 --archive --gzip > /backup/mongo-backup.gz"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "退出后，就可以在当前目录下看到 "
+                    },
+                    {
+                      "text": "mongo-backup.gz",
+                      "code": true
+                    },
+                    {
+                      "text": " 文件了。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "备份思路二：提前做好绑定挂载"
+                    }
+                  ],
+                  "id": "I7BLJ1Dq"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在"
+                    },
+                    {
+                      "text": "前一篇教程",
+                      "link": true,
+                      "url": "https://tuture.co/2020/01/01/cd44c84/"
+                    },
+                    {
+                      "text": "的”回忆与升华“部分，我们轻描淡写地讲解了通过 "
+                    },
+                    {
+                      "text": "docker exec",
+                      "code": true
+                    },
+                    {
+                      "text": " 执行 "
+                    },
+                    {
+                      "text": "mongodump",
+                      "code": true
+                    },
+                    {
+                      "text": " 命令来做备份，但是当时输出的备份文件还是停留在容器中，只要容器被删除，备份文件也就消失了。于是一个很自然的想法就出现了：我们能不能在创建数据库容器的时候就做好绑定挂载，然后通过 "
+                    },
+                    {
+                      "text": "mongodump",
+                      "code": true
+                    },
+                    {
+                      "text": " 把数据备份到挂载区域？"
+                    }
+                  ],
+                  "id": "uJrVao-Z"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "事实上，之前在创建数据库容器的时候，运行以下命令："
+                    }
+                  ],
+                  "id": "uJrVao-Z"
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker run --name dream-db --network dream-net -v $(pwd):/backup -d mongo"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "然后再通过 "
+                    },
+                    {
+                      "text": "docker exec",
+                      "code": true
+                    },
+                    {
+                      "text": " 执行 "
+                    },
+                    {
+                      "text": "mongodump",
+                      "code": true
+                    },
+                    {
+                      "text": " 命令："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker exec dream-db sh -c 'mongodump -v --archive --gzip > /backup/mongo-backup.gz'"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "就可以轻松实现。这里我们用 "
+                    },
+                    {
+                      "text": "sh -c",
+                      "code": true
+                    },
+                    {
+                      "text": " 来执行一整条 Shell 命令（字符串形式），这样避免了重定向符 "
+                    },
+                    {
+                      "text": ">",
+                      "code": true
+                    },
+                    {
+                      "text": " 引发的歧义（不理解的话可以把 "
+                    },
+                    {
+                      "text": "sh -c 'xxx'",
+                      "code": true
+                    },
+                    {
+                      "text": " 替换成 "
+                    },
+                    {
+                      "text": "xxx",
+                      "code": true
+                    },
+                    {
+                      "text": "）。可以看到，"
+                    },
+                    {
+                      "text": "mongodump",
+                      "code": true
+                    },
+                    {
+                      "text": " 的命令简单了许多，我们再也不需要指定 "
+                    },
+                    {
+                      "text": "--host",
+                      "code": true
+                    },
+                    {
+                      "text": " 参数，因为数据库就在本容器内。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "但是有个问题："
+                    },
+                    {
+                      "text": "如果已经创建了数据库，并且没有提前做绑定挂载，这种方法就行不通了！",
+                      "bold": true
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "注意，这不是演习！"
+                    }
+                  ],
+                  "id": "BAtH6T44"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "有了数据库备份文件，我们就可以肆无忌惮地来做一波”演习“了。通过以下命令，直接端了目前的数据库和 API 服务器："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker rm -f --volumes dream-db"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker rm -f dream-api"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "没错，通过 "
+                    },
+                    {
+                      "text": "--volumes",
+                      "code": true
+                    },
+                    {
+                      "text": " 开关，我们不仅把 "
+                    },
+                    {
+                      "text": "dream-db",
+                      "code": true
+                    },
+                    {
+                      "text": " 容器删了，还顺带把挂载的数据卷全部删除！演习就是要足够逼真才行。这时候再访问 "
+                    },
+                    {
+                      "text": "localhost:8080",
+                      "code": true
+                    },
+                    {
+                      "text": " ，之前的待办数据全部丢失！"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "开始灾后重建，让我们再次创建新的 "
+                    },
+                    {
+                      "text": "dream-db",
+                      "code": true
+                    },
+                    {
+                      "text": " 容器："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker run --name dream-db --network dream-net -v $(pwd):/backup -d mongo"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "注意到，我们通过绑定挂载的方式把当前目录映射到容器的 "
+                    },
+                    {
+                      "text": "/backup",
+                      "code": true
+                    },
+                    {
+                      "text": " 目录，这意味着可以在这个新的容器中通过 "
+                    },
+                    {
+                      "text": "/backup/mongo-backup.gz",
+                      "code": true
+                    },
+                    {
+                      "text": " 来恢复数据，运行以下命令："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker exec dream-db sh -c 'mongorestore --archive --gzip < /backup/mongo-backup.gz'"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们应该会看到输出了一些日志，提示我们数据恢复成功。最后重新开启 API 服务器："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "bash",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "docker run -p 4000:4000 --name dream-api --network dream-net -d dream-server"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "回头访问我们的待办应用，数据是不是都回来了！？"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "heading-two",
+              "children": [
+                {
+                  "text": "回忆与升华"
+                }
+              ],
+              "id": "s9bvBklU"
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "另一种共享数据的方式：docker cp"
+                }
+              ],
+              "id": "XRQ_tXp3"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "之前，我们通过共享数据卷或者绑定挂载的方式来把容器的数据传送到容器之外。事实上，在容器和本机之间还可以通过另一种方式传递和共享数据："
+                },
+                {
+                  "text": "docker cp",
+                  "code": true
+                },
+                {
+                  "text": " 命令。没错，如果你用过 "
+                },
+                {
+                  "text": "cp",
+                  "code": true
+                },
+                {
+                  "text": " 命令拷贝文件，它的用法一定不会陌生。例如，我们将 "
+                },
+                {
+                  "text": "dream-api",
+                  "code": true
+                },
+                {
+                  "text": " 容器内的日志文件拷贝到当前目录下："
+                }
+              ],
+              "id": "LRmpwN-f"
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker cp dream-api:/var/log/server/access.log ."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "看！"
+                },
+                {
+                  "text": "access.log",
+                  "code": true
+                },
+                {
+                  "text": " 就有了！当然，我们还可以”反向操作“一波，把本地的文件拷贝到容器里面去："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker cp /path/to/some/file dream-api:/dest/path"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到，"
+                },
+                {
+                  "text": "docker cp",
+                  "code": true
+                },
+                {
+                  "text": " 用起来非常方便，很适合一次性的操作。缺陷也很明显："
+                }
+              ]
+            },
+            {
+              "type": "numbered-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "完全手动的数据管理"
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "numbered-list",
+                  "number": 1
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "需要知道数据在容器中的具体路径，这对于反复迭代的应用来说很麻烦"
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "numbered-list",
+                  "number": 2
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "实现多个容器之间的数据共享比较繁琐"
+                    }
+                  ],
+                  "level": 0,
+                  "parent": "numbered-list",
+                  "number": 3
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "另一种备份恢复的方式：docker import/export"
+                }
+              ],
+              "id": "g0vSiKqf"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在备份和恢复数据库时，有一个更加简单粗暴的思路：为什么我们不能直接备份整个容器呢？事实上，Docker 确实为我们提供了两个命令来搞定整个容器的打包和装载："
+                },
+                {
+                  "text": "export",
+                  "code": true
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "text": "import",
+                  "code": true
+                },
+                {
+                  "text": " 。"
+                }
+              ],
+              "id": "QZYZwLSk"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "例如，通过以下命令将"
+                },
+                {
+                  "text": "整个容器的文件系统",
+                  "bold": true
+                },
+                {
+                  "text": "导出为 "
+                },
+                {
+                  "text": "tar",
+                  "code": true
+                },
+                {
+                  "text": " 包："
+                }
+              ],
+              "id": "QZYZwLSk"
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker export my-container > my-container.tar"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "note",
+              "level": "warning",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "export",
+                      "code": true
+                    },
+                    {
+                      "text": " 命令"
+                    },
+                    {
+                      "text": "不会导出",
+                      "bold": true
+                    },
+                    {
+                      "text": "容器相关数据卷的内容。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "然后可以通过 "
+                },
+                {
+                  "text": "import",
+                  "code": true
+                },
+                {
+                  "text": " 命令创建拥有完全相同内容的"
+                },
+                {
+                  "text": "镜像",
+                  "bold": true
+                },
+                {
+                  "text": "："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "docker import my-container.tar"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "import",
+                  "code": true
+                },
+                {
+                  "text": " 命令会输出一个 SHA256 字符串，就是镜像的 UUID。接着可以用 "
+                },
+                {
+                  "text": "docker run",
+                  "code": true
+                },
+                {
+                  "text": " 命令启动这个镜像（可以指定 SHA256 串，也可以先通过 "
+                },
+                {
+                  "text": "docker tag",
+                  "code": true
+                },
+                {
+                  "text": " 打个标签）。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "如果你刚刚尝试了 "
+                },
+                {
+                  "text": "export",
+                  "code": true
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "text": "import",
+                  "code": true
+                },
+                {
+                  "text": " 命令，一定会发现一个相当严重的问题：容器打包之后的 tar 包有好几百兆。很显然，简单粗暴地打包容器也包括了很多根本无用的数据（例如操作系统中的其他文件），对硬盘的压力陡然增加。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "追本溯源：探寻镜像和容器的本质（UFS）"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在学习和实践了数据卷的知识后，我们还接触了一下 "
+                },
+                {
+                  "text": "docker cp",
+                  "code": true
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "text": "docker export/import",
+                  "code": true
+                },
+                {
+                  "text": " 命令。至此，我们不禁追问，镜像和容器的本质到底是什么，其中的数据是怎样存储的？"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "或者我们提一个更具体的问题："
+                },
+                {
+                  "text": "为什么镜像中的数据（例如操作系统中的各种文件）每次创建容器时都会存在，而在创建容器后写入的数据会在容器删除后却丢失？",
+                  "bold": true
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这背后的一切就是 Docker 赖以生存的 "
+                },
+                {
+                  "text": "Union File System（UFS）",
+                  "bold": true
+                },
+                {
+                  "text": "机制。我们通过一张图（来源："
+                },
+                {
+                  "text": "The Docker Ecosystem",
+                  "link": true,
+                  "url": "https://legacy.gitbook.com/book/washraf/the-docker-ecosystem/details"
+                },
+                {
+                  "text": "）来大致感受一下："
+                }
+              ]
+            },
+            {
+              "type": "image",
+              "url": ".tuture/assets/ufs.png",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "children": [
+                {
+                  "text": "我们来一点点分析上面这张 UFS 示意图的要点："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "children": [
+                    {
+                      "text": "整个 UFS 都是由一层层的内容组成的，从底层的操作系统内核（Kernel），到上层的软件（例如 Apache 服务器）"
+                    }
+                  ],
+                  "type": "list-item",
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "children": [
+                    {
+                      "text": "UFS 中的每一层可分为"
+                    },
+                    {
+                      "text": "只读层",
+                      "bold": true
+                    },
+                    {
+                      "text": "（read-only，也就是图中的"
+                    },
+                    {
+                      "text": "不透明盒子",
+                      "italic": true
+                    },
+                    {
+                      "text": "）和"
+                    },
+                    {
+                      "text": "可写层",
+                      "bold": true
+                    },
+                    {
+                      "text": "（writable，也就是图中的"
+                    },
+                    {
+                      "text": "透明盒子",
+                      "italic": true
+                    },
+                    {
+                      "text": "）"
+                    }
+                  ],
+                  "type": "list-item",
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "children": [
+                    {
+                      "text": "镜像",
+                      "bold": true
+                    },
+                    {
+                      "text": "（例如图中的 add Apache 和 Busybox）由一系列"
+                    },
+                    {
+                      "text": "只读层",
+                      "bold": true
+                    },
+                    {
+                      "text": "构成"
+                    }
+                  ],
+                  "type": "list-item",
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "children": [
+                    {
+                      "text": "当我们根据"
+                    },
+                    {
+                      "text": "镜像",
+                      "bold": true
+                    },
+                    {
+                      "text": "创建"
+                    },
+                    {
+                      "text": "容器",
+                      "bold": true
+                    },
+                    {
+                      "text": "时，就是在该镜像所有只读层之上加一层"
+                    },
+                    {
+                      "text": "可写层",
+                      "bold": true
+                    },
+                    {
+                      "text": "，在容器中进行的任何数据的修改都会记录在这个可写层中，而不会影响到底下的只读层"
+                    }
+                  ],
+                  "type": "list-item",
+                  "level": 0,
+                  "parent": "bulleted-list"
+                },
+                {
+                  "children": [
+                    {
+                      "text": "当容器销毁后，在可写层中修改的所有内容将丢失"
+                    }
+                  ],
+                  "type": "list-item",
+                  "level": 0,
+                  "parent": "bulleted-list"
+                }
+              ]
+            },
+            {
+              "children": [
+                {
+                  "text": "而我们这一篇文章所讲解的数据管理技巧（数据卷、绑定挂载），则是完全绕开了 UFS，让重要的业务数据独立存储，并且可备份、可恢复，而不是陷入在容器的可写层中让整个容器变得臃肿不堪。"
+                }
+              ],
+              "type": "paragraph",
+              "level": 0,
+              "parent": "bulleted-list"
+            },
+            {
+              "children": [
+                {
+                  "text": "再回过头看上面的问题，是不是有思路了？"
+                }
+              ],
+              "type": "paragraph",
+              "level": 0,
+              "parent": "bulleted-list"
             }
           ]
         }
