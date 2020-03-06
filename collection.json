@@ -9916,6 +9916,31 @@
               ]
             },
             {
+              "type": "note",
+              "level": "warning",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "/ #",
+                      "code": true
+                    },
+                    {
+                      "text": " 是 alpine 镜像默认的命令提示符，后面的 "
+                    },
+                    {
+                      "text": "touch /data/file.txt",
+                      "code": true
+                    },
+                    {
+                      "text": " 才是真正要执行的命令哦。"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "type": "paragraph",
               "children": [
                 {
