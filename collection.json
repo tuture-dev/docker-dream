@@ -17,6 +17,7 @@
     {
       "name": "一杯茶的时间，上手 Docker",
       "id": "442cc8dad3310b0aec2ea119ebc884a2",
+      "created": "2020-01-01T07:17:34.647Z",
       "cover": ".tuture/assets/cover-1.jpg",
       "topics": [
         "Docker"
@@ -26,16 +27,18 @@
     {
       "name": "Docker 筑梦师系列（一）：实现容器互联",
       "id": "cd44c8468a5c475985364cae57387491",
+      "created": "2020-01-12T07:17:34.647Z",
       "cover": ".tuture/assets/cover-2.jpg",
       "description": "在实际应用中，不同的服务之间是需要通信的，例如后端 API 和数据库；幸运的是，Docker 为我们提供了网络（Network）机制，能够轻松实现容器互联。这篇文章将带你轻松上手 Docker 网络，学会使用默认网络和自定义网络，成为一名能够连接多个“梦境”的筑梦师！"
     },
     {
       "id": "0X8ssR35",
       "name": "Docker 筑梦师系列（二）：上手容器数据管理",
+      "created": "2020-03-06T07:17:34.647Z",
       "topics": [
         "Docker"
       ],
-      "cover": "",
+      "cover": ".tuture/assets/docker-cover-3.jpg",
       "description": "数据是一切应用和服务的核心，特别是目睹了一次次“删库跑路”引发的惨剧之后，我们更能深入体会到数据存储与备份的重要性。Docker 也为我们提供了方便且强大的方式去处理容器的数据。在这一篇文章中，我们将带你了解 Docker 的两种常用的数据管理方式：数据卷（Volume）和绑定挂载（Bind Mount），从而能够游刃有余地处理好数据，为你的应用提供强有力的支撑和保障。"
     }
   ],

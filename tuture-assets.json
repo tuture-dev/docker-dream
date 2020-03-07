@@ -138,5 +138,9 @@
   {
     "localPath": ".tuture/assets/db-backup-2.png",
     "hostingUri": "https://imgkr.cn-bj.ufileos.com/e2f68f11-8557-4ae4-8af0-0be6312d4949.png"
+  },
+  {
+    "localPath": ".tuture/assets/docker-cover-3.jpg",
+    "hostingUri": "https://imgkr.cn-bj.ufileos.com/c5db4935-7704-4773-b613-31d92482dfb4.jpg"
   }
 ]
