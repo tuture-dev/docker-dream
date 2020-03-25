@@ -3,7 +3,7 @@
   "description": "努力工作，然后进入梦乡，“工作”和“做梦”之间好像没有任何关联；编写代码，然后部署应用，这两者似乎也是天各一边。然而果真如此吗？这篇文章将通过《盗梦空间》的方式打开 Docker，让你实现从“做梦”到“筑梦”的实质性转变。在原先的“做梦”阶段（手动配置和部署），一切都充满了随机性和不可控性，你有时甚至都无法回忆起具体做的每一步；而在“筑梦”阶段（借助 Docker），你将通过自动化、高度可重复且可追踪的方式轻松实现任何配置和部署任务。希望读完这篇文章的你，也能成为一个优秀的“筑梦师”！",
   "id": "442cc8dad3310b0aec2ea119ebc884a2",
   "created": "2020-01-01T07:17:34.647Z",
-  "github": "https://github.com/tuture-dev/docker-dream.git",
+  "github": "https://github.com/tuture-dev/docker-dream",
   "topics": [
     "Docker"
   ],
@@ -4057,6 +4057,7 @@
         {
           "file": "client/config/nginx.conf",
           "display": true,
+          "commit": "06a33bd",
           "type": "file",
           "children": [
             {
@@ -4317,6 +4318,7 @@
         {
           "file": "client/Dockerfile",
           "display": true,
+          "commit": "06a33bd",
           "type": "file",
           "children": [
             {
@@ -4595,6 +4597,7 @@
         {
           "file": "client/.dockerignore",
           "display": true,
+          "commit": "06a33bd",
           "type": "file",
           "children": [
             {
@@ -10884,11 +10887,13 @@
                 }
               ]
             }
-          ]
+          ],
+          "flag": "step_start"
         },
         {
           "file": "server/Dockerfile",
           "display": true,
+          "commit": "f81540ea93f63c9d1de865fe197cfa9d5375691c",
           "type": "file",
           "children": [
             {
@@ -11029,29 +11034,26 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_start"
             },
             {
               "type": "diff-block",
               "file": "server/Dockerfile",
               "commit": "f81540ea93f63c9d1de865fe197cfa9d5375691c",
               "hiddenLines": [
-                0,
-                1,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                22,
-                23,
-                24,
-                25,
-                26
+                [
+                  0,
+                  1
+                ],
+                [
+                  7,
+                  15
+                ],
+                [
+                  22,
+                  26
+                ]
               ],
               "children": [
                 {
@@ -12033,7 +12035,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "flag": "file_end"
             }
           ]
         },
@@ -12579,9 +12582,20 @@
               "level": 0,
               "parent": "bulleted-list"
             }
-          ]
+          ],
+          "flag": "step_end"
         }
       ]
+    }
+  ],
+  "version": "v1",
+  "remotes": [
+    {
+      "name": "origin",
+      "refs": {
+        "fetch": "https://github.com/tuture-dev/docker-dream.git",
+        "push": "https://github.com/tuture-dev/docker-dream.git"
+      }
     }
   ]
 }
