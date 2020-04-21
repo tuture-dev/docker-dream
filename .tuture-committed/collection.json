@@ -11159,6 +11159,7 @@
                   ]
                 },
                 {
+                  "type": "paragraph",
                   "children": [
                     {
                       "text": "第一步，实现 "
@@ -11439,6 +11440,7 @@
                   ]
                 },
                 {
+                  "type": "paragraph",
                   "children": [
                     {
                       "text": "首先，我们的临时容器得连接上 "
