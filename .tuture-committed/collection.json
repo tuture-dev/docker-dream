@@ -12,13 +12,13 @@
     "Docker",
     "入门"
   ],
-  "cover": ".tuture/assets/cover-2.jpg",
+  "cover": "https://imgkr.cn-bj.ufileos.com/898e445b-9477-415b-8665-aeea4d63c9ce.jpg",
   "articles": [
     {
       "name": "一杯茶的时间，上手 Docker",
       "id": "442cc8dad3310b0aec2ea119ebc884a2",
       "created": "2020-01-01T07:17:34.647Z",
-      "cover": ".tuture/assets/cover-1.jpg",
+      "cover": "https://imgkr.cn-bj.ufileos.com/f80df06b-7413-4ba6-8211-8b9bfda68e81.jpg",
       "topics": [
         "Docker"
       ],
@@ -28,7 +28,7 @@
       "name": "Docker 筑梦师系列（一）：实现容器互联",
       "id": "cd44c8468a5c475985364cae57387491",
       "created": "2020-01-12T07:17:34.647Z",
-      "cover": ".tuture/assets/cover-2.jpg",
+      "cover": "https://imgkr.cn-bj.ufileos.com/898e445b-9477-415b-8665-aeea4d63c9ce.jpg",
       "description": "在实际应用中，不同的服务之间是需要通信的，例如后端 API 和数据库；幸运的是，Docker 为我们提供了网络（Network）机制，能够轻松实现容器互联。这篇文章将带你轻松上手 Docker 网络，学会使用默认网络和自定义网络，成为一名能够连接多个“梦境”的筑梦师！"
     },
     {
@@ -38,7 +38,7 @@
       "topics": [
         "Docker"
       ],
-      "cover": ".tuture/assets/docker-cover-3.jpg",
+      "cover": "https://imgkr.cn-bj.ufileos.com/c5db4935-7704-4773-b613-31d92482dfb4.jpg",
       "description": "数据是一切应用和服务的核心，特别是目睹了一次次“删库跑路”引发的惨剧之后，我们更能深入体会到数据存储与备份的重要性。Docker 也为我们提供了方便且强大的方式去处理容器的数据。在这一篇文章中，我们将带你了解 Docker 的两种常用的数据管理方式：数据卷（Volume）和绑定挂载（Bind Mount），从而能够游刃有余地处理好数据，为你的应用提供强有力的支撑和保障。"
     }
   ],
@@ -238,7 +238,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/dream-demo.gif",
+                  "url": "https://imgkr.cn-bj.ufileos.com/3f095b51-0e29-4c6c-987d-be14b80b0358.gif",
                   "children": [
                     {
                       "text": ""
@@ -269,7 +269,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/mindnode-1.jpg",
+                  "url": "https://imgkr.cn-bj.ufileos.com/f75b0f00-4d62-4965-bd9b-70857197230b.jpg",
                   "children": [
                     {
                       "text": ""
@@ -596,12 +596,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -648,12 +643,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -699,12 +689,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -750,12 +735,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -801,12 +781,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -852,12 +827,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -903,12 +873,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -954,12 +919,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1005,12 +965,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1056,12 +1011,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1107,12 +1057,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1158,12 +1103,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1209,12 +1149,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1260,12 +1195,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1311,12 +1241,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1362,12 +1287,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1413,12 +1333,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1464,12 +1379,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1515,12 +1425,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1566,12 +1471,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1617,12 +1517,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1668,12 +1563,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -2024,7 +1914,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/docker-nginx.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/c398c95e-5d98-4920-8fb7-e545a94d7241.png",
                   "children": [
                     {
                       "text": ""
@@ -2060,7 +1950,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/docker-nginx-log.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/5ef20121-b065-4717-9a1f-75dff0ef4b0e.png",
                   "children": [
                     {
                       "text": ""
@@ -2382,7 +2272,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/docker-ps.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/d2d566a2-b66c-4fcd-8fb4-0973bbc273fc.png",
                   "children": [
                     {
                       "text": ""
@@ -2415,7 +2305,7 @@
                   "children": [
                     {
                       "type": "image",
-                      "url": ".tuture/assets/docker-ps-long.png",
+                      "url": "https://imgkr.cn-bj.ufileos.com/aa5fbd8c-856a-47e5-a853-78fa78a80807.png",
                       "children": [
                         {
                           "text": ""
@@ -2850,7 +2740,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/docker-ps-ubuntu.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/145fd94f-4167-4a5e-9ed2-76cf94d6ab19.png",
                   "children": [
                     {
                       "text": ""
@@ -2943,7 +2833,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/docker-ps-a.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/aedbf113-889d-4d46-bc6d-cd83792cad5c.png",
                   "children": [
                     {
                       "text": ""
@@ -3153,7 +3043,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/portal.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/9a558b95-b825-4feb-858c-4ed5d37b477a.png",
                   "children": [
                     {
                       "text": ""
@@ -3206,7 +3096,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/lifecycle.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/0b1205f1-7cb9-436d-926d-7e863c2f2fa7.png",
                   "children": [
                     {
                       "text": ""
@@ -3369,7 +3259,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/lifecycle-path1.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/78641d03-dc33-4e95-af58-51171d127674.png",
                   "children": [
                     {
                       "text": ""
@@ -3480,7 +3370,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/lifecycle-path2.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/5c0e3e15-c101-4357-90a9-483613149377.png",
                   "children": [
                     {
                       "text": ""
@@ -4262,12 +4152,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -4358,12 +4243,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -4581,7 +4461,7 @@
                   "children": [
                     {
                       "type": "image",
-                      "url": ".tuture/assets/node_modules.jpg",
+                      "url": "https://imgkr.cn-bj.ufileos.com/a4ae7e5f-0f41-4f32-afea-eccc785478cf.jpg",
                       "children": [
                         {
                           "text": ""
@@ -4637,12 +4517,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -4677,7 +4552,7 @@
                   "children": [
                     {
                       "type": "image",
-                      "url": ".tuture/assets/docker-build-nginx.png",
+                      "url": "https://imgkr.cn-bj.ufileos.com/f2855d36-f453-4a01-914b-1c653e7d7946.png",
                       "children": [
                         {
                           "text": ""
@@ -4781,7 +4656,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/finish-demo1.gif",
+                  "url": "https://imgkr.cn-bj.ufileos.com/0ea17a38-3dae-45e8-9573-7a7d6eb236d7.gif",
                   "children": [
                     {
                       "text": ""
@@ -5162,7 +5037,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/image-container.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/a97e6725-c6e2-4212-b804-4a7ceee91819.png",
                   "children": [
                     {
                       "text": ""
@@ -5327,7 +5202,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/engine-components-flow.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/897cd3ed-ec51-495f-b9df-5a5680f8f292.png",
                   "children": [
                     {
                       "text": ""
@@ -5816,7 +5691,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/network-1.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/b0db5e43-613f-476a-83cc-8f33d7a7d9f3.png",
                   "children": [
                     {
                       "text": ""
@@ -7112,7 +6987,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/network-2.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/29f5ef39-4411-429c-8ece-9785762917a4.png",
                   "children": [
                     {
                       "text": ""
@@ -7674,12 +7549,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -7912,12 +7782,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -8276,7 +8141,7 @@
                   "children": [
                     {
                       "type": "image",
-                      "url": ".tuture/assets/docker-ps-fullstack.png",
+                      "url": "https://imgkr.cn-bj.ufileos.com/0cd2852c-fe3c-44f1-b4a9-7aea9ef2c53b.png",
                       "children": [
                         {
                           "text": ""
@@ -8305,7 +8170,7 @@
                   "children": [
                     {
                       "type": "image",
-                      "url": ".tuture/assets/docker-network-demo.gif",
+                      "url": "https://imgkr.cn-bj.ufileos.com/4d711ae7-0443-47d2-9776-12d169b7ea6e.gif",
                       "children": [
                         {
                           "text": ""
@@ -9170,7 +9035,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/container-commands-squashed.jpg",
+                  "url": "https://imgkr.cn-bj.ufileos.com/2dfbf466-59c7-4a75-9516-73dcbddb099d.jpg",
                   "children": [
                     {
                       "text": ""
@@ -9192,7 +9057,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/image-commands-squashed.jpg",
+                  "url": "https://imgkr.cn-bj.ufileos.com/404ae1d4-6849-4b04-bcf5-34390a0e61d8.jpg",
                   "children": [
                     {
                       "text": ""
@@ -9214,7 +9079,7 @@
               "children": [
                 {
                   "type": "image",
-                  "url": ".tuture/assets/network-commands-squashed.jpg",
+                  "url": "https://imgkr.cn-bj.ufileos.com/a5930965-9f34-45f2-a2da-86baaea484bf.jpg",
                   "children": [
                     {
                       "text": ""
@@ -9774,7 +9639,7 @@
             },
             {
               "type": "image",
-              "url": ".tuture/assets/docker-volume-2cac2304fb49274f.png",
+              "url": "https://imgkr.cn-bj.ufileos.com/509fbbda-3acb-4c97-af06-802dfd291a76.png",
               "children": [
                 {
                   "text": ""
@@ -10704,7 +10569,7 @@
             },
             {
               "type": "image",
-              "url": ".tuture/assets/types-of-mounts-volume.png",
+              "url": "https://imgkr.cn-bj.ufileos.com/b34a0993-2b4e-4c37-9980-740e4e6efbb0.png",
               "children": [
                 {
                   "text": ""
@@ -10887,8 +10752,7 @@
                 }
               ]
             }
-          ],
-          "flag": "step_start"
+          ]
         },
         {
           "file": "server/Dockerfile",
@@ -11034,8 +10898,7 @@
                     }
                   ]
                 }
-              ],
-              "flag": "file_start"
+              ]
             },
             {
               "type": "diff-block",
@@ -11057,12 +10920,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -11235,7 +11093,7 @@
                 },
                 {
                   "type": "image",
-                  "url": ".tuture/assets/docker-ps-vol-squashed.jpg",
+                  "url": "https://imgkr.cn-bj.ufileos.com/b51275f9-423f-43b8-9e85-0950af8557b0.jpg",
                   "children": [
                     {
                       "text": ""
@@ -11254,11 +11112,12 @@
                     {
                       "text": " ，进入到待办事项页面，创建几个事项："
                     }
-                  ]
+                  ],
+                  "type": "paragraph"
                 },
                 {
                   "type": "image",
-                  "url": ".tuture/assets/snapshot-vol-squashed.jpg",
+                  "url": "https://imgkr.cn-bj.ufileos.com/bae3db1c-ad49-4646-9897-605f1dfc2bdc.jpg",
                   "children": [
                     {
                       "text": ""
@@ -11285,7 +11144,7 @@
                 },
                 {
                   "type": "image",
-                  "url": ".tuture/assets/log-backup.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/e705fe02-34c5-4453-b8d6-ee4b8292b55b.png",
                   "children": [
                     {
                       "text": ""
@@ -11572,7 +11431,7 @@
                 },
                 {
                   "type": "image",
-                  "url": ".tuture/assets/db-backup-1.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/ff9bb80d-df21-41d4-a95e-d85ce2358071.png",
                   "children": [
                     {
                       "text": ""
@@ -11744,7 +11603,7 @@
                 },
                 {
                   "type": "image",
-                  "url": ".tuture/assets/db-backup-2.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/e2f68f11-8557-4ae4-8af0-0be6312d4949.png",
                   "children": [
                     {
                       "text": ""
@@ -12035,8 +11894,7 @@
                     }
                   ]
                 }
-              ],
-              "flag": "file_end"
+              ]
             }
           ]
         },
@@ -12433,7 +12291,7 @@
             },
             {
               "type": "image",
-              "url": ".tuture/assets/ufs.png",
+              "url": "https://imgkr.cn-bj.ufileos.com/8e136a4b-c3bb-4fd4-b3a1-c45caf57b6c1.png",
               "children": [
                 {
                   "text": ""
@@ -12582,8 +12440,7 @@
               "level": 0,
               "parent": "bulleted-list"
             }
-          ],
-          "flag": "step_end"
+          ]
         }
       ]
     }
