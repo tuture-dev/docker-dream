@@ -1,146 +1,146 @@
 [
   {
     "localPath": ".tuture/assets/dream-demo.gif",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/3f095b51-0e29-4c6c-987d-be14b80b0358.gif"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/dream-demo.gif"
   },
   {
     "localPath": ".tuture/assets/mindnode-1.jpg",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/f75b0f00-4d62-4965-bd9b-70857197230b.jpg"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/mindnode-1.jpg"
   },
   {
     "localPath": ".tuture/assets/docker-nginx.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/c398c95e-5d98-4920-8fb7-e545a94d7241.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-nginx.png"
   },
   {
     "localPath": ".tuture/assets/docker-nginx-log.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/5ef20121-b065-4717-9a1f-75dff0ef4b0e.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-nginx-log.png"
   },
   {
     "localPath": ".tuture/assets/docker-ps.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/d2d566a2-b66c-4fcd-8fb4-0973bbc273fc.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-ps.png"
   },
   {
     "localPath": ".tuture/assets/docker-ps-long.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/aa5fbd8c-856a-47e5-a853-78fa78a80807.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-ps-long.png"
   },
   {
     "localPath": ".tuture/assets/docker-ps-ubuntu.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/145fd94f-4167-4a5e-9ed2-76cf94d6ab19.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-ps-ubuntu.png"
   },
   {
     "localPath": ".tuture/assets/docker-ps-a.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/aedbf113-889d-4d46-bc6d-cd83792cad5c.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-ps-a.png"
   },
   {
     "localPath": ".tuture/assets/portal.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/9a558b95-b825-4feb-858c-4ed5d37b477a.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/portal.png"
   },
   {
     "localPath": ".tuture/assets/lifecycle.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/0b1205f1-7cb9-436d-926d-7e863c2f2fa7.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/lifecycle.png"
   },
   {
     "localPath": ".tuture/assets/lifecycle-path1.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/78641d03-dc33-4e95-af58-51171d127674.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/lifecycle-path1.png"
   },
   {
     "localPath": ".tuture/assets/lifecycle-path2.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/5c0e3e15-c101-4357-90a9-483613149377.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/lifecycle-path2.png"
   },
   {
     "localPath": ".tuture/assets/node_modules.jpg",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/a4ae7e5f-0f41-4f32-afea-eccc785478cf.jpg"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/node_modules.jpg"
   },
   {
     "localPath": ".tuture/assets/docker-build-nginx.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/f2855d36-f453-4a01-914b-1c653e7d7946.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-build-nginx.png"
   },
   {
     "localPath": ".tuture/assets/finish-demo1.gif",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/0ea17a38-3dae-45e8-9573-7a7d6eb236d7.gif"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/finish-demo1.gif"
   },
   {
     "localPath": ".tuture/assets/image-container.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/a97e6725-c6e2-4212-b804-4a7ceee91819.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/image-container.png"
   },
   {
     "localPath": ".tuture/assets/engine-components-flow.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/897cd3ed-ec51-495f-b9df-5a5680f8f292.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/engine-components-flow.png"
   },
   {
     "localPath": ".tuture/assets/docker-ps-fullstack.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/0cd2852c-fe3c-44f1-b4a9-7aea9ef2c53b.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-ps-fullstack.png"
   },
   {
     "localPath": ".tuture/assets/docker-network-demo.gif",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/4d711ae7-0443-47d2-9776-12d169b7ea6e.gif"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-network-demo.gif"
   },
   {
     "localPath": ".tuture/assets/network-1.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/b0db5e43-613f-476a-83cc-8f33d7a7d9f3.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/network-1.png"
   },
   {
     "localPath": ".tuture/assets/network-2.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/29f5ef39-4411-429c-8ece-9785762917a4.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/network-2.png"
   },
   {
     "localPath": ".tuture/assets/container-commands-squashed.jpg",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/2dfbf466-59c7-4a75-9516-73dcbddb099d.jpg"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/container-commands-squashed.jpg"
   },
   {
     "localPath": ".tuture/assets/image-commands-squashed.jpg",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/404ae1d4-6849-4b04-bcf5-34390a0e61d8.jpg"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/image-commands-squashed.jpg"
   },
   {
     "localPath": ".tuture/assets/network-commands-squashed.jpg",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/a5930965-9f34-45f2-a2da-86baaea484bf.jpg"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/network-commands-squashed.jpg"
   },
   {
     "localPath": ".tuture/assets/cover-1.jpg",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/f80df06b-7413-4ba6-8211-8b9bfda68e81.jpg"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/cover-1.jpg"
   },
   {
     "localPath": ".tuture/assets/cover-2.jpg",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/898e445b-9477-415b-8665-aeea4d63c9ce.jpg"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/cover-2.jpg"
   },
   {
     "localPath": ".tuture/assets/types-of-mounts-volume.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/b34a0993-2b4e-4c37-9980-740e4e6efbb0.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/types-of-mounts-volume.png"
   },
   {
     "localPath": ".tuture/assets/docker-volume.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/e3130051-29e4-43da-b3bf-22b9bea2e1d0.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-volume.png"
   },
   {
     "localPath": ".tuture/assets/docker-volume-2cac2304fb49274f.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/509fbbda-3acb-4c97-af06-802dfd291a76.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-volume-2cac2304fb49274f.png"
   },
   {
     "localPath": ".tuture/assets/docker-ps-vol-squashed.jpg",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/b51275f9-423f-43b8-9e85-0950af8557b0.jpg"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-ps-vol-squashed.jpg"
   },
   {
     "localPath": ".tuture/assets/snapshot-vol-squashed.jpg",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/bae3db1c-ad49-4646-9897-605f1dfc2bdc.jpg"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/snapshot-vol-squashed.jpg"
   },
   {
     "localPath": ".tuture/assets/ufs.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/8e136a4b-c3bb-4fd4-b3a1-c45caf57b6c1.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/ufs.png"
   },
   {
     "localPath": ".tuture/assets/log-backup.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/e705fe02-34c5-4453-b8d6-ee4b8292b55b.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/log-backup.png"
   },
   {
     "localPath": ".tuture/assets/db-backup-1.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/ff9bb80d-df21-41d4-a95e-d85ce2358071.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/db-backup-1.png"
   },
   {
     "localPath": ".tuture/assets/db-backup-2.png",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/e2f68f11-8557-4ae4-8af0-0be6312d4949.png"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/db-backup-2.png"
   },
   {
     "localPath": ".tuture/assets/docker-cover-3.jpg",
-    "hostingUri": "https://imgkr.cn-bj.ufileos.com/c5db4935-7704-4773-b613-31d92482dfb4.jpg"
+    "hostingUri": "https://static.tuture.co/c/442cc8dad3310b0aec2ea119ebc884a2/docker-cover-3.jpg"
   }
 ]
